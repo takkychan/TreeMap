@@ -1,3 +1,12 @@
+# User Mannual
+- run "npm i" to install node modules
+- run "npm run start" to start the app
+- prepare and input a valid json
+- input a row number
+- Click or press enter to build the tree.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
