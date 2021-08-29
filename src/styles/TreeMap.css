@@ -1,0 +1,5 @@
+.tree-map-container {
+  display: grid;
+  max-width: 768px;
+  height: auto;
+}
