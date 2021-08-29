@@ -1,5 +1,12 @@
 .tree-map-container {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   max-width: 768px;
   height: auto;
+}
+.data-row {
+  display: flex;
+}
+.data-item {
+  display: flex;
 }

@@ -10,6 +10,9 @@ function Form() {
   const [numOfRow, setNumOfRow] = useState(1);
   const [dataErr, setDataErr] = useState('');
   const [rowErr, setRowErr] = useState('');
+  const [rowToSubmit, setRowToSubmit] = useState({});
+
+  //Data limits
   const ROW_MIN = 1;
   const DATA_LENGTH_MIN = 50;
   const NAME_LENGTH_MIN = 50;
@@ -68,7 +71,10 @@ function Form() {
     if (numOfRow < ROW_MIN) setRowErr('Number of row must >= 1');
     else if (dataToSubmit && numOfRow > dataToSubmit.length) {
       setRowErr('Number of row must < size of array');
-    } else setRowErr('');
+    } else {
+      setRowToSubmit(numOfRow);
+      setRowErr('');
+    }
   }
 
   function buildTreeMap(e) {
@@ -100,14 +106,14 @@ function Form() {
           type="number"
           value={numOfRow}
           min={ROW_MIN}
-          onChange={(e) => setNumOfRow(e.target.value)}
+          onChange={(e) => setNumOfRow(Number(e.target.value))}
           placeholder="Row"
         />
         <span className="error"> {rowErr || ' '}</span>
       </div>
       <button className="build">Build Now</button>
       {dataToSubmit && !dataErr && !rowErr ? (
-        <TreeMap data={dataToSubmit} row={numOfRow} />
+        <TreeMap data={dataToSubmit} row={rowToSubmit} />
       ) : (
         ''
       )}
