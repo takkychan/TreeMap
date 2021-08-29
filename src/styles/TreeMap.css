@@ -10,3 +10,24 @@
 .data-item {
   display: flex;
 }
+
+
+.tree-map-container{
+  margin-top: 1rem;
+
+  background-color: #f2f2f2;
+}
+
+.data-row{
+  height: 100px;
+
+}
+
+.data-item{
+  outline: 1px solid #ced4da;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

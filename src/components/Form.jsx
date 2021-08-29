@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import '../styles/Form.css';
 import TreeMap from './TreeMap';
 
@@ -27,7 +27,11 @@ function Form() {
     if (validData) {
       //check all data attributes' requirement
       if (checkDataAttr(validData)) {
-        setDataToSubmit(validData);
+        setDataToSubmit(validData.sort((a, b) => {
+          if (a.weight > b.weight) return -1;
+          if (a.weight < b.weight) return 1;
+          return 0;
+        }));
         setDataErr('');
       }
     } else {
@@ -82,6 +86,8 @@ function Form() {
     validateData();
     validateNumOfRow();
   }
+
+ 
 
   return (
     <form className="input-form" onSubmit={buildTreeMap}>
